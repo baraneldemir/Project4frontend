@@ -1,4 +1,4 @@
-import { Form, Button } from "react-bootstrap"
+import { Form, Button, Container } from "react-bootstrap"
 import axios from 'axios'
 import { useRef } from "react"
 
@@ -28,18 +28,22 @@ export default function Login() {
 
     }
     return (
-    <Form onSubmit={handleSubmit}>
-        <Form.Group>
-            <Form.Label>Username</Form.Label>
-            <Form.Control type="text" ref={userRef} required />
-        </Form.Group>
-        <Form.Group>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" ref= {pwdRef} required />
-        </Form.Group>
-        <div className="mt-2">
-            <Button type="submit" variant="secondary">Login</Button>
-        </div>
-    </Form>
+        <div className="d-flex justify-content-center align-items-center vh-100">
+        <Container style={{ maxWidth: '700px' }}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" ref={userRef} required />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" ref={pwdRef} required />
+                </Form.Group>
+                <div className="mt-2 d-flex justify-content-center">
+                    <Button type="submit" variant="secondary">Login</Button>
+                </div>
+            </Form>
+        </Container>
+    </div>
     )
 }

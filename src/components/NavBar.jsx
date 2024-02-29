@@ -1,5 +1,8 @@
-import { Nav, Navbar } from "react-bootstrap";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 import { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
 
 export default function NavBar() {
     const [isAuth, setIsAuth] = useState(false)
@@ -11,19 +14,33 @@ export default function NavBar() {
     }, [isAuth])
 
     return (
-        <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/">Django Auth in React</Navbar.Brand>
-                <Nav className="me-auto">
-                {isAuth ? (
-                    <Nav.Link href='logout/'>Logout</Nav.Link>
-                ) : (
-                    <>
-                        <Nav.Link href='login/'>Login</Nav.Link>
-                        <Nav.Link href='signup/'>Signup</Nav.Link>
-                    </>
-                )
-                }
-            </Nav>
-        </Navbar>
+
+
+        <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+      <Navbar.Brand  as={Link} to="/">HELLOWORLD LAW</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {isAuth ? (
+                        <Nav.Link as={Link} to='logout/'>LOGOUT</Nav.Link>
+                    ) : (
+                        <>
+                            <Nav.Link as={Link} to='login/'>LOGIN</Nav.Link>
+                            <Nav.Link as={Link} to='signup/'>SIGNUP</Nav.Link>
+                        </>
+                    )
+                    }
+                    <Nav.Link as={Link} to='aboutus/'>WHO WE ARE</Nav.Link>
+                    <Nav.Link as={Link} to='contactus/'>OUR SOLICITORS</Nav.Link>
+                    <Nav.Link as={Link} to='legalconsultancy/'>WHAT WE DO</Nav.Link>
+                    <Nav.Link as={Link} to='legalconsultancy/'>HAPPY CLIENTS</Nav.Link>
+                    <Nav.Link as={Link} to='legalconsultancy/'>RESOURCES</Nav.Link>
+                    <Nav.Link as={Link} to='contactus/'>CONTACT US</Nav.Link>
+                    <Nav.Link as={Link} to='legaldictionary/'>LEGAL DICTIONARY</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
 );
 }
