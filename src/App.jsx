@@ -9,8 +9,6 @@ import './App.css'
 import HomePage from './pages/HomePage';
 // import { useState, useEffect } from 'react';
 // import axios from 'axios'
-import WhowearePage from './pages/WhowearePage';
-import Ourteam from './pages/Ourteam';
 import Happyclients from './pages/Happyclients';
 import SinglePage from './pages/SinglePage';
 import EditProfile from './components/EditProfile';
