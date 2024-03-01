@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { usePeople } from "../contexts/PeopleContext"
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import './EditProfile.css'
 
 
 export default function EditProfile() {
@@ -52,8 +53,8 @@ export default function EditProfile() {
     
 
 return (
-    <Container >
-    <Form onSubmit={handleSubmit}>
+    <Container className="profile-container">
+    <Form onSubmit={handleSubmit} className="profile-form">
     <Form.Group>
         <Form.Label>Full Name</Form.Label>
         <Form.Control type="text" ref={nameRef} defaultValue={person.name} required />
@@ -64,7 +65,7 @@ return (
     </Form.Group>
     <Form.Group>
         <Form.Label>Description</Form.Label>
-        <Form.Control type="text" ref={descriptionRef} defaultValue={person.description}  />
+        <Form.Control type="textarea" rows={3} ref={descriptionRef} defaultValue={person.description}  />
     </Form.Group>
     <Form.Group>
         <Form.Label>Linkedin</Form.Label>
@@ -79,7 +80,7 @@ return (
         <Form.Control type="text" ref={imageRef} defaultValue={person.image}  required />
     </Form.Group>
     <div className="mt-2">
-        <Button type="submit" variant="secondary">
+        <Button type="submit" variant="primary">
         Update Profile
         </Button>
     </div>

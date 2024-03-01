@@ -18,6 +18,14 @@ export default function NavBar() {
 
         <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
+      {/* <Nav.Link style={{paddingRight: '-30vh'}} as={Link} to="/">
+                    <img
+                      src={logo}
+                      width="80vh"
+                      className="d-inline-block align-top"
+                      alt="Logo"
+                    />
+      </Nav.Link> */}
       <Navbar.Brand  as={Link} to="/">HELLOWORLD LAW</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
