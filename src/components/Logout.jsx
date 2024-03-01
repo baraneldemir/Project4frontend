@@ -7,9 +7,9 @@ export default function Logout() {
             async () => {
                 try {
                     await axios.post(
-                        `${process.env.REACT_APP_BACKEND_URL}/logout/`,
+                        `${process.env.REACT_APP_BACKEND_URL}/auth_logout/`,
                         {
-                            refres_token: localStorage.getItem('refresh_token')
+                            refresh_token: localStorage.getItem('refresh_token')
                         },
                         {
                             headers: {
