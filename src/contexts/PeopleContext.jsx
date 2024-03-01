@@ -9,7 +9,7 @@ export function usePeople() {
 
 export const PeopleProvider = ({children}) => {
     const [peoples, setPeoples] = useState([])
-    const [people, setPeople] = useState({})
+    const [person, setPerson] = useState({})
     // const [isUpdated, setIsUpdated] = useState(false)
 
     
@@ -18,7 +18,7 @@ export const PeopleProvider = ({children}) => {
         headers: {
             'Content-Type': 'application/json', 
             "Authorization": `Bearer ${localStorage.getItem("access_token")}`,
-          }})
+        }})
         .then(response => {
             console.log(response.data)
             setPeoples(response.data)
@@ -35,22 +35,28 @@ export const PeopleProvider = ({children}) => {
     //     .catch(error => console.error("Error fetching peoples", error))
     // }
 
-    function getPeople(peopleId) {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/people/${peopleId}/`)
+    async function getPeople(peopleId) {
+        await axios.get(`${process.env.REACT_APP_BACKEND_URL}/people/${peopleId}/`, {
+            headers: {
+                'Content-Type': 'application/json', 
+                "Authorization": `Bearer ${localStorage.getItem("access_token")}`,
+            }
+        })
         .then(response => { 
-            setPeople(response.data)
+            setPerson(response.data)
         })
         .catch(error => console.error("Error fetching single people", error))
     }
 
     async function deletePeople(peopleId) {
         try {
-            await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/people/remove/${peopleId}/`, {
+            await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/people/${peopleId}/`, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
                 },
             });
+            window.location.href = "/";
         } catch (error) {
             console.error('Error deleting people:', error);
         }
@@ -58,7 +64,7 @@ export const PeopleProvider = ({children}) => {
 
     return (
         <PeopleContext.Provider value={{
-            people,
+            person,
             peoples,
             getPeoples,
             getPeople,

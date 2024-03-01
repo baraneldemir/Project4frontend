@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap'
 import Logout from './components/Logout';
 import Signup from './components/Signup'
 import './App.css'
-import LegalDictionary from './pages/LegalDictionary';
+// import LegalDictionary from './pages/LegalDictionary';
 import HomePage from './pages/HomePage';
 // import { useState, useEffect } from 'react';
 // import axios from 'axios'
@@ -13,6 +13,12 @@ import WhowearePage from './pages/WhowearePage';
 import Ourteam from './pages/Ourteam';
 import Happyclients from './pages/Happyclients';
 import SinglePage from './pages/SinglePage';
+import EditProfile from './components/EditProfile';
+import NewProfileModal from './components/NewProfileModal';
+import Footer from './components/Footer';
+import Contact from './components/Contact';
+import SecondPart from './components/SecondPart';
+import Teams from './components/Teams';
 
 
 function App() {
@@ -60,16 +66,20 @@ function App() {
             <Route path='/login' element={ <Login /> } />
             <Route path='/logout' element={ <Logout /> } />
             <Route path='/signup' element={ <Signup /> } />
-            <Route path='/peoples/:id' element={ <SinglePage />}/>
-            <Route path='/whoweare' element={ <WhowearePage /> } />
-            <Route path='/ourteam' element={ <Ourteam /> } />
-            <Route path='/whatwedo' element={ <Signup /> } />
+            <Route path='/people/:id' element={ <SinglePage />}/>
+            <Route path='/whoweare' element={ <SecondPart /> } />
+            <Route path='/ourteam' element={ <Teams /> } />
             <Route path='/happyclients' element={ <Happyclients /> } />
-            <Route path='/resources' element={ <Signup /> } />
-            <Route path='/contactus' element={ <Signup /> } />
-            <Route path='/legaldictionary' element={ <LegalDictionary /> } /> 
+            <Route path='/contactus' element={ <Contact /> }/>
+            <Route path="/people/:id/edit" element={<EditProfile />} />
+            <Route path="/people/add" element={<NewProfileModal />} />
+            {/* <Route path='/legaldictionary' element={ <LegalDictionary /> } />  */}
         </Routes>
       </Container>
+      
+      <footer id="footer">
+        <Footer />
+      </footer>
     </BrowserRouter>
 
   )

@@ -1,19 +1,64 @@
-
-// import { useEffect } from "react";
+import { usePeople } from "../contexts/PeopleContext"
+import { useEffect, useState } from "react";
 // import axios from 'axios'
-// import { usePeople } from "../contexts/ProductContext";
-// import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Container, Image, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
 // import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 export default function SinglePage() {
-    // const {people, getPeople} = usePeople()
+    const {person, getPeople, deletePeople} = usePeople()
+    const { id } = useParams()
+    const [isAuth, setIsAuth] = useState(false)
+
+    function handleDelete() {
+        deletePeople(id)
+    }
+
+    function handleEdit() {
+
+    }
+
+    useEffect(() => {
+        if(localStorage.getItem('access_token') !== null) {
+            setIsAuth(true)
+        }  
+        getPeople(id)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isAuth])
 
 
-
-
-  return (
-    <div>SinglePage</div>
-  )
+    return (
+    <>
+        <Container style={{backgroundColor: 'darkgrey'}}>
+            <div className='title-holder' style={{paddingTop: '4vh'}}>
+                <h2>ATTORNEY PROFILE</h2>
+                {isAuth ? (
+                    <>
+                        <Button variant="primary" onClick={handleDelete}>Delete Profile</Button>
+                        &nbsp;
+                        <Link to={`/people/${id}/edit`}><Button variant="primary" onClick={handleEdit}>Edit Profile</Button></Link>
+                    </>
+                    ) : (
+                        <>
+                            <Link to='/login'><Button variant="primary" >Delete Profile</Button></Link>
+                            &nbsp;
+                            <Link to='/login'><Button variant="primary" onClick={handleEdit}>Edit Profile</Button></Link>
+                        </>
+                    )
+                    }
+                
+            </div>
+            <Container style={{backgroundColor: 'white', maxWidth: '80vh'}}>
+                <Image src={person.image}/>
+                <h2 style={{textAlign: 'center'}}>{person.name}</h2>
+                <p style={{padding: '10vh', paddingTop: '3vh'}}>Most tenants do not understand their commercial lease. It is typically long, confusing, and filled with legal jargon. We help you understand your lease, so you can make informed decisions. This saves you time, money, and headache, allowing you to focus on running your business.</p>
+            </Container>
+            
+        </Container>
+    </>
+)
 }
 
 
