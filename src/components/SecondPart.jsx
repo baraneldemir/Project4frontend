@@ -10,9 +10,9 @@ export default function SecondPart() {
   return (
     <section id='about' className='block about-block'>
       <Container style={{ backgroundImage: 'url(https://img.freepik.com/free-photo/gray-color-cotton-texture-surface-background_74190-13729.jpg)' }}>
-        <div className='title-holder' style={{ paddingTop: '2vh' }}>
-          <h2>5 REASONS WHY BUSINESSES LOVE HELLOWORLD LAW</h2>
-          <div className='subtitle'>Learn more about us</div>
+        <div className='title-holder' style={{ paddingTop: '8vh' }}>
+          <h2 style={{ color: 'black' }}>REASONS WHY BUSINESSES LOVE HELLOWORLD LAW</h2>
+          <div className='subtitle' style={{ color: 'black' }}>Learn more about us</div>
         </div>
         <Container style={{ backgroundColor: 'white', maxWidth: '80vh' }}>
           <ImageContainer src={img1} title="1. Clarity + Guidance" text="Most tenants do not understand their commercial lease. It is typically long, confusing, and filled with legal jargon. We help you understand your lease, so you can make informed decisions. This saves you time, money, and headache, allowing you to focus on running your business." />

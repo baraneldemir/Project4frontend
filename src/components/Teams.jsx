@@ -35,7 +35,7 @@ export default function Teams() {
                 <Link to='/login'><Button variant="primary">Create Profile</Button></Link>
               </>
             )}
-            <div className='subtitle'>some of our experts</div>
+            <div className='subtitle' style={{color: 'black'}}>some of our experts</div>
           </div>
           <Row>
             {peoples?.map(person => (
