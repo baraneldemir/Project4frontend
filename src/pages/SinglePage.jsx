@@ -53,7 +53,7 @@ export default function SinglePage() {
             <Container style={{backgroundColor: 'white', maxWidth: '80vh'}}>
                 <Image src={person.image}/>
                 <h2 style={{textAlign: 'center'}}>{person.name}</h2>
-                <p style={{padding: '10vh', paddingTop: '3vh'}}>Most tenants do not understand their commercial lease. It is typically long, confusing, and filled with legal jargon. We help you understand your lease, so you can make informed decisions. This saves you time, money, and headache, allowing you to focus on running your business.</p>
+                <p style={{padding: '10vh', paddingTop: '3vh'}}>{person.description}</p>
             </Container>
             
         </Container>

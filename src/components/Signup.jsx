@@ -47,7 +47,7 @@ export default function Signup() {
                     <Form.Control type="password" ref= {pwdRef} required />
                 </Form.Group>
                 <div className="mt-2 d-flex justify-content-center">
-                    <Button type="submit" variant="secondary">Login</Button>
+                    <Button type="submit" variant="secondary">Sign up</Button>
                 </div>
             </Form>
     </Container>
